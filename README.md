@@ -1,106 +1,86 @@
 # System Design Labs
 
-A hands-on collection of **real-world backend and system design
-projects** focused on understanding how systems evolve from simple →
-scalable architectures.
+A hands-on collection of **real-world backend engineering & system design projects** — focused not just on *what to build*, but **how and why systems evolve in production**.
 
-> This is NOT just theory. Every concept is implemented, tested, and
-> broken down with real-world trade-offs.
+> This is not a tutorial repo.  
+> This is **engineering in practice** — decisions, trade-offs, failures, and evolution.
 
-------------------------------------------------------------------------
+---
 
-## Goal
+## Purpose
 
--   Learn system design through **building**
--   Understand **why architectures evolve**
--   Gain **interview-ready insights**
--   Think like a **backend engineer, not just a coder**
+- Build **real systems**, not toy examples  
+- Develop **engineering intuition** (not just theoretical knowledge)  
+- Understand **how systems break, scale, and adapt**  
+- Prepare for **system design & backend interviews at a deep level**
 
-------------------------------------------------------------------------
+---
 
-## What You'll Find Here
+## What This Repo Actually Teaches
 
-Each project focuses on:
+Each project is not just an implementation — it’s a **thinking process**:
 
--   Real-world use cases
--   Step-by-step evolution (Monolith → Distributed)
--   Trade-offs (scalability, latency, complexity)
--   Production-like thinking
+- System design fundamentals applied in real scenarios  
+- Trade-offs (scalability vs complexity, consistency vs performance)  
+- Architectural evolution (not just final state)  
+- Failure scenarios & handling strategies  
+- Production-like constraints and decisions  
 
-------------------------------------------------------------------------
+---
 
-## Projects
+## Engineering Philosophy
 
-### Monolith vs Microservices (E-commerce System)
+Instead of jumping to “best practices”, this repo follows:
 
-    monolith-vs-microservices/
-      ├── monolith/
-      ├── microservices/
-      └── evolution-notes.md
+1. **Start simple** — build a working system  
+2. **Observe pain points** — scaling, coupling, failures  
+3. **Refactor intentionally** — not blindly  
+4. **Understand consequences** — every decision has a cost  
 
-#### Covers:
+---
 
--   Monolithic architecture
--   Microservices architecture
--   API Gateway pattern
--   Service-to-service communication
--   Dockerized deployment
+## What Makes This Different
 
-and more.
+Most resources teach:
+- What is a monolith?
+- What are microservices?
 
-------------------------------------------------------------------------
+This repo teaches:
+- **Why systems evolve**
+- **What breaks in real-world scenarios**
+- **How engineers think under constraints**
 
-## Tech Stack
+---
 
--   Node.js + Express
--   PostgreSQL
--   Docker & Docker Compose
--   REST APIs
+## Key Takeaways
 
-------------------------------------------------------------------------
+- Simplicity vs scalability is always a trade-off  
+- Distributed systems introduce **new classes of problems**  
+- Network calls, failures, and latency change everything  
+- Good engineering is about **decision-making, not tools**
 
-## How to Run Projects
+---
 
-``` bash
-cd monolith-vs-microservices/monolith
-docker-compose up --build
-```
+## Who This Is For
 
-------------------------------------------------------------------------
+- Backend developers aiming for **strong fundamentals**
+- Students preparing for **system design interviews**
+- Engineers who want to **think beyond CRUD apps**
 
-## Learning Philosophy
-
-1.  Start simple (Monolith)
-2.  Identify limitations
-3.  Refactor into Microservices
-4.  Understand trade-offs deeply
-
-------------------------------------------------------------------------
-
-## Key Learnings
-
--   Why monoliths are easy but hard to scale
--   Why microservices are scalable but complex
--   How network calls change system behavior
--   Handling failures in distributed systems
-
-------------------------------------------------------------------------
+---
 
 ## Why This Repo Matters
 
-This repository reflects:
+This isn’t just code.
 
--   Practical system design knowledge
--   Engineering thinking
--   Ability to build and evolve systems
+It demonstrates:
+- Engineering mindset  
+- System design clarity  
+- Ability to evolve systems  
+- Real-world problem solving  
 
-------------------------------------------------------------------------
+---
 
 ## Author
 
-Built as part of a journey to become a strong backend/system design
-engineer.
-
-------------------------------------------------------------------------
-
-⭐ If you find this useful, consider starring the repo!
+Built as part of a journey to become a **high-quality backend & system design engineer**.
