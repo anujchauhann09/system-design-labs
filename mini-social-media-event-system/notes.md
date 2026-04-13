@@ -1,10 +1,10 @@
 # Mini Social Media Event System — Notes
 
-This is a personal log of how we built this system step by step. Not a tutorial. Just honest notes on what we built, why, what broke, and what we learned along the way.
+This is a personal log of how I built this system step by step. Not a tutorial. Just honest notes on what I built, why, what broke, and what I learned along the way.
 
 ---
 
-## Where we started
+## Where I started
 
 The goal was simple — build an API that accepts a like or comment, and instead of saving it directly to a database, publish it as an event. Other services would react to that event independently.
 
