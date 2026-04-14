@@ -1,0 +1,43 @@
+version: "3.9"
+
+networks:
+  bloom_net:
+    driver: bridge
+
+services:
+  redis:
+    image: redis/redis-stack-server:latest
+    container_name: bloom_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - bloom_net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - ./redis/redis.conf:/redis-stack.conf:ro
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: bloom_api
+    ports:
+      - "3000:3000"
+    networks:
+      - bloom_net
+    environment:
+      - NODE_ENV=development
+      - REDIS_URL=redis://redis:6379
+      - DB_PATH=/app/db/bloom.db
+    volumes:
+      - ./api:/app
+      - /app/node_modules          
+      - ./db:/app/db              
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: node src/index.js
