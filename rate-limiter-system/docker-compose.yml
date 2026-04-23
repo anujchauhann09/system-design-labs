@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # load balancer
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app_1
+      - app_2
+      - app_3
+    restart: unless-stopped
+
+  # app instances (stateless — all state lives in Redis)
+  app_1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file: .env
+    environment:
+      - INSTANCE_ID=app_1
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  app_2:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file: .env
+    environment:
+      - INSTANCE_ID=app_2
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  app_3:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file: .env
+    environment:
+      - INSTANCE_ID=app_3
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # redis (shared state store) 
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
